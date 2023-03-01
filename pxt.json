@@ -1,5 +1,5 @@
 {
-    "name": "体感ゲーム",
+    "name": "時間当てゲーム",
     "description": "",
     "dependencies": {
         "core": "*",

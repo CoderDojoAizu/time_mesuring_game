@@ -1,19 +1,22 @@
 input.onButtonPressed(Button.A, function () {
-    ボタンを押した時間 = Math.round((input.runningTime() - 計測開始時間) / 1000)
-    if (ボタンを押した時間 == タイマー時間) {
+    ストップ = Math.round((input.runningTime() - スタート) / 1000)
+    if (ストップ == 当てる時間) {
+        music.startMelody(music.builtInMelody(Melodies.PowerUp), MelodyOptions.OnceInBackground)
         basic.showIcon(IconNames.Happy)
     } else {
+        music.startMelody(music.builtInMelody(Melodies.PowerDown), MelodyOptions.OnceInBackground)
         basic.showIcon(IconNames.No)
     }
     basic.pause(2000)
-    basic.showNumber(ボタンを押した時間)
+    basic.showNumber(ストップ)
 })
 input.onButtonPressed(Button.B, function () {
+    スタート = input.runningTime()
     basic.showIcon(IconNames.SmallDiamond)
-    計測開始時間 = input.runningTime()
+    music.playSoundEffect(music.builtinSoundEffect(soundExpression.hello), SoundExpressionPlayMode.InBackground)
 })
-let 計測開始時間 = 0
-let ボタンを押した時間 = 0
-let タイマー時間 = 0
-タイマー時間 = 10
-basic.showNumber(タイマー時間)
+let スタート = 0
+let ストップ = 0
+let 当てる時間 = 0
+当てる時間 = 10
+basic.showNumber(当てる時間)
